@@ -3,7 +3,7 @@ const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 dotenv.config();
-
+const authrouter = require('./routers/auth')
 // Mongodb Connection
 // add DB_CONNECT_CONNECTION_STRING and TOKEN_SECRET in .env file
 mongoose.connect(
@@ -13,5 +13,7 @@ mongoose.connect(
     console.log("db connected");
   }
 );
+app.use(express.json())
+app.use('/api/user',authrouter);
 
 app.listen(3000, () => console.log("3000 port server running"));
