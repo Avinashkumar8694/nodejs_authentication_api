@@ -15,5 +15,7 @@ mongoose.connect(
 );
 app.use(express.json())
 app.use('/api/user',authrouter);
+app.use('/api/post',postroute);
+
 
 app.listen(3000, () => console.log("3000 port server running"));
